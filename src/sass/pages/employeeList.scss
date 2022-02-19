@@ -1,0 +1,68 @@
+.employeeList h1, .employeeList a{
+    text-align: center;
+  }
+.employeeList {
+    &-table {
+        width: 80%;
+        margin: auto;
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            input {
+                height: 36px;
+                background-color: hsl(0, 0%, 100%);
+                border-radius: 4px;   
+                border: solid 1px hsl(0, 0%, 80%);
+                padding: 2px 8px;
+            }
+            input:focus-visible {
+                outline: none;
+                border: #2684FF solid 2px;
+            }
+        }
+        table thead {
+            background-color: #ebe9e9;
+        }
+    }
+    &-table-header {
+        margin-bottom: 3%;
+        align-items: center;
+        &_select {
+            display: flex;
+            align-items: center;
+            div {
+                margin: 0 5px;
+            }
+        }
+    }
+    &_link {
+        display: block;
+        text-decoration: none;
+        background-color: #000;
+        color: #fff;
+        padding: 8px 18px;
+        border-radius: 7px;
+        width: 80px;
+        margin: auto;
+    }
+    &-table-pagination {
+        &_buttons button{
+            background-color: #000;
+            border-radius: 5px;
+            border-style: none;
+            color: #FFF;
+            height: 30px;
+            width: 30px;
+          }
+          &_buttons button:disabled {
+            background-color: hsl(0, 0%, 80%);
+          }
+    }
+    &-header, &-table-pagination {
+        display: flex;
+        justify-content: space-between;
+      }
+      &-alert {
+         text-align: center;
+      }
+}

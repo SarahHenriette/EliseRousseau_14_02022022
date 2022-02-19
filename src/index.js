@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { BrowserRouter as  Router, Routes, Route } from "react-router-dom";
+import './sass/style.scss';
+import CreateEmployee from './pages/CreateEmployee';
+import EmployeeList from "./pages/EmployeeList"
 import reportWebVitals from './reportWebVitals';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+          <Route path="/" element={<CreateEmployee />}/>
+          <Route path="/employeeList" element={<EmployeeList />}/>
+      </Routes>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
