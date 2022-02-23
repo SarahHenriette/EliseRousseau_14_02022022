@@ -1,5 +1,5 @@
 /**
- * @return states list
+ * @return states list use in the form
  */
 const states = [
     {

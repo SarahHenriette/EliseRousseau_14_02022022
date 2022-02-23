@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Select from 'react-select';
 import { DatePicker} from "simple-datepicker-react"; 
-import departments from '../constantes/departments.js';
-import states from '../constantes/states.js';
+import departments from '../datas/departments.js';
+import states from '../datas/states.js';
 import save from "../functions/saveEmployes.js";
 import Modal from 'react-modal';
 import customStyles from "../styled/customStyleModal.js";
@@ -15,7 +15,7 @@ import customStyles from "../styled/customStyleModal.js";
  *
  */
 function Form () {
-    const [modalIsOpen, setIsOpen] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     const [firstname, setFirstname] = useState("")
     const [lastname, setLastname] = useState("")
     const [street, setStreet] = useState("")
@@ -26,32 +26,11 @@ function Form () {
 
     function saveEmployee(e) {
         e.preventDefault()
-        if(firstname !== "" && lastname!== "" && street !== "" && city !== "" &&  zipCode !== "" &&
-            document.getElementById('department').querySelector(".css-qc6sy-singleValue") &&
-            document.getElementById('state').querySelector(".css-qc6sy-singleValue") &&
-            document.getElementById('date-of-birth').value !== "" && 
-            document.getElementById('start-date').value !== ""
-        )
-        {
-            save(firstname, lastname, street, city, zipCode)
-            setFirstname("")
-            setLastname("")
-            setStreet("")
-            setCity("")
-            setZipCode("")
-            setIsOpen(true)
-            setDateBirth('')
-            setStartDate('')
-            e.target.querySelector('#department').querySelector(".css-qc6sy-singleValue").innerHTML= "Select..."
-            e.target.querySelector('#state').querySelector(".css-qc6sy-singleValue").innerHTML= "Select..."
-
-        } else {
-            alert('Veuillez remplir le formulaire')
-        }
+        save(e, firstname, lastname, street, city, zipCode, setFirstname, setLastname, setStreet, setCity, setZipCode, setModalIsOpen, setDateBirth, setStartDate)
     }
 
     function closeModal() {
-        setIsOpen(false);
+        setModalIsOpen(false);
     }
 
     return (

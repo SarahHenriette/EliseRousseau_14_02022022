@@ -1,5 +1,5 @@
 /**
- * @return number pages
+ * @return number pages for employee table
  */
 const pages = [
     {

@@ -15,7 +15,6 @@ function GlobalFilter({
     const onChange = useAsyncDebounce(value => {
       setGlobalFilter(value || undefined)
     }, 200)
-  
     return (
       <span>
         <input
@@ -35,7 +34,7 @@ function GlobalFilter({
 /**
  * @param { array } props - properties for display of the number employee by page
  */
-function HeaderTable(props){
+function FilterTable(props){
     return (  
       <div className="employeeList-table-header">
         <div className="employeeList-table-header_select">
@@ -50,4 +49,4 @@ function HeaderTable(props){
     )
 }
 
-export default HeaderTable;
+export default FilterTable;

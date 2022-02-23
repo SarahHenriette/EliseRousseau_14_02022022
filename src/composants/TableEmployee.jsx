@@ -1,16 +1,16 @@
 import React from 'react'
 import { useTable, useSortBy, usePagination, useFilters, useGlobalFilter } from 'react-table'
 import './../sass/style.scss';
-import pages from "./../constantes/pages.js";
-import HeaderTable from "./../composants/HeaderTable.jsx";
-import Pagination from "./../composants/Pagination";
+import pages from "../datas/pages.js";
+import FilterTable from "./FilterTable.jsx";
+import Pagination from "./Pagination";
 
 /**
  * @return table of employee list
  * @param columns - name of columns 
  * @param data - datas of table
  */
-export default function Table({ columns, data }) {
+export default function TableEmployee({ columns, data }) {
     // Use the state and functions returned from useTable to build your UI
     const {
       getTableProps,
@@ -41,26 +41,25 @@ export default function Table({ columns, data }) {
     // Render the UI for your table
     return (
       <div className="employeeList-table">
-          <HeaderTable pages={pages} pageSize={pageSize} preGlobalFilteredRows={preGlobalFilteredRows} state={state} setGlobalFilter={setGlobalFilter} setPageSize={setPageSize}/>
+          <FilterTable pages={pages} pageSize={pageSize} 
+          preGlobalFilteredRows={preGlobalFilteredRows} 
+          state={state} setGlobalFilter={setGlobalFilter} 
+          setPageSize={setPageSize}/>
           <table {...getTableProps()}>
+            {/* header of table */}
             <thead>
                 {<tr {...headerGroups[1].getHeaderGroupProps()}>
                     {headerGroups[1].headers.map(column => (
                     <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                       {column.render('Header')}
                       <span>
-                        {column.isSorted 
-                          ? column.isSortedDesc
-                            ? " 🔽" 
-                            : " 🔼"
-                          : "" 
-                        }  
+                        {column.isSorted ? column.isSortedDesc ? " 🔽" : " 🔼" : "" }  
                       </span>  
                     </th>
                   ))}
-                
                 </tr>}
             </thead>
+            {/* body of table */}
             <tbody {...getTableBodyProps()}>
               {page.map((row, i) => {
                 prepareRow(row)
@@ -75,7 +74,13 @@ export default function Table({ columns, data }) {
             </tbody>
           </table>
           <br />
-          <Pagination pageIndex={pageIndex} rows={rows} canPreviousPage={canPreviousPage} canNextPage={canNextPage} previousPage={previousPage} nextPage={nextPage}/>
+          <Pagination 
+          pageIndex={pageIndex} 
+          rows={rows} 
+          canPreviousPage={canPreviousPage} 
+          canNextPage={canNextPage} 
+          previousPage={previousPage} 
+          nextPage={nextPage}/>
       </div>
       )
   }

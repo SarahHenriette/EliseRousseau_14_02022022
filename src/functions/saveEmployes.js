@@ -1,9 +1,18 @@
-import employees from "../constantes/employeesList.js";
- 
+import employees from "../datas/employeesList.js";
+
 /**
- * @return save datas of employee in the table employees
+ * @return save datas of employee in the array employees
  */
- function saveEmployees(firstname, lastname, street, city, zipCode) {
+ function SaveEmployees(e, firstname, lastname, street, city, zipCode, setFirstname, setLastname, setStreet, setCity, setZipCode, setModalIsOpen, setDateBirth, setStartDate) {
+     //If all the fields are not empty
+    if(firstname !== "" && lastname!== "" && street !== "" && city !== "" &&  zipCode !== "" &&
+    document.getElementById('department').querySelector(".css-qc6sy-singleValue") &&
+    document.getElementById('state').querySelector(".css-qc6sy-singleValue") &&
+    document.getElementById('date-of-birth').value !== "" && 
+    document.getElementById('start-date').value !== ""
+)
+{
+    //I create a constant that contains the employee's data
     const employee = {
         firstName: firstname,
         lastName: lastname,
@@ -15,7 +24,26 @@ import employees from "../constantes/employeesList.js";
         state: document.getElementById('state').querySelector(".css-qc6sy-singleValue").innerHTML,
         zipCode: zipCode
     }
-    employees.push(employee)        
+    //I push them into the employee array
+    employees.push(employee) 
+
+    //I open the modal
+    setModalIsOpen(true)
+
+    //I empty all the fields of the form     
+    setFirstname("")
+    setLastname("")
+    setStreet("")
+    setCity("")
+    setZipCode("")
+    setDateBirth('')
+    setStartDate('')
+    e.target.querySelector('#department').querySelector(".css-qc6sy-singleValue").innerHTML= "Select..."
+    e.target.querySelector('#state').querySelector(".css-qc6sy-singleValue").innerHTML= "Select..."
+} else {
+    alert('Veuillez remplir le formulaire')
+}
+  
 }
 
-export default saveEmployees  
+export default SaveEmployees  

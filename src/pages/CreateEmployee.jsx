@@ -7,6 +7,7 @@ import './../sass/style.scss';
  * @return page for add employee
  */
 export default function CreateEmployee () {
+
     return(
         <div className="createEmployee">
             <div className="createEmployee-header">

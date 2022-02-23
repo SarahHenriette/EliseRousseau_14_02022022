@@ -1,5 +1,5 @@
 /**
- * @return list departments 
+ * @return list departments use in the form
  */
 const departments = [
     {
