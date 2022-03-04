@@ -1,4 +1,17 @@
-# Getting Started with Create React App
+ # HRNet
+J'ai travailler pour le département tech d'une grande société financière WealthHealth. Cette société utilise une application web interne, appelée HRnet, qui gère les dossiers des employés. L'application est ancienne et utilise jQuery côté front end, ce qui entraîne des bugs considérables et une augmentation des plaintes en interne. Mon équipe de développement s'efforce depuis un certain temps déjà de mettre à niveau l'application.  
+
+## Installation 
+- Récupérer les dépendances avec la commande "npm install"
+- Lancer la commande "npm start"
+
+## Compétences 
+- Refondre une application pour réduire la dette technique
+- Analyser la performance d'une application web
+- Déployer une application front-end
+- Programmer en JavaScript avec la programmation fonctionnelle
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +80,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
