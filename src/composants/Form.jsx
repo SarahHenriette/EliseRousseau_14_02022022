@@ -32,7 +32,7 @@ function Form () {
     function closeModal() {
         setModalIsOpen(false);
     }
-
+    
     return (
         <form className="createEmployee-body_form" id="createEmployee-body_form" action="#" onSubmit={saveEmployee}>
                 <label htmlFor="first-name">First Name</label>
