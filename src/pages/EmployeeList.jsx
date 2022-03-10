@@ -1,4 +1,4 @@
-import React from 'react'
+import React  from 'react'
 import { Link } from "react-router-dom";
 import TableEmployee from "../composants/TableEmployee";
 import './../sass/style.scss';
@@ -11,7 +11,8 @@ import employees from "../datas/employeesList"
  * @const { array } data - contains datas of employee list
  */
 export default function EmployeeList () {
-    const data = React.useMemo(() => employees, [])
+    const data = React.useMemo(() => employees, [employees])
+
     return(
         <div className="employeeList">
                 <h1>Current Employees</h1>

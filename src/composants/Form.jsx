@@ -4,6 +4,8 @@ import { DatePicker} from "simple-datepicker-react";
 import departments from '../datas/departments.js';
 import states from '../datas/states.js';
 import save from "../functions/saveEmployes.js";
+import resetEmployee from "../functions/resetForm";
+
 import Modal from 'react-modal';
 import customStyles from "../styled/customStyleModal.js";
 
@@ -24,9 +26,18 @@ function Form () {
     const [dateBirth, setDateBirth] = useState('')
     const [startDate, setStartDate] = useState('')
 
-    function saveEmployee(e) {
+    function handleSubmit(e) {
         e.preventDefault()
-        save(e, firstname, lastname, street, city, zipCode, setFirstname, setLastname, setStreet, setCity, setZipCode, setModalIsOpen, setDateBirth, setStartDate)
+        if(firstname !== "" && lastname!== "" && street !== "" && city !== "" &&  zipCode !== "" &&
+        document.getElementById('department').querySelector(".css-qc6sy-singleValue") &&
+        document.getElementById('state').querySelector(".css-qc6sy-singleValue") &&
+        document.getElementById('date-of-birth').value !== "" && 
+        document.getElementById('start-date').value !== ""
+        ){
+            save(firstname, lastname, street, city, zipCode)
+            resetEmployee(e, setFirstname, setLastname, setStreet, setCity, setZipCode, setDateBirth, setStartDate)
+            setModalIsOpen(true)
+        }
     }
 
     function closeModal() {
@@ -34,7 +45,7 @@ function Form () {
     }
     
     return (
-        <form className="createEmployee-body_form" id="createEmployee-body_form" action="#" onSubmit={saveEmployee}>
+        <form className="createEmployee-body_form" id="createEmployee-body_form" action="#" onSubmit={handleSubmit}>
                 <label htmlFor="first-name">First Name</label>
                 <input type="text" id="first-name" value={firstname} onChange={(e)=>setFirstname(e.target.value)}/>
                 <label htmlFor="last-name">Last Name</label>
