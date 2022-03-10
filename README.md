@@ -32,7 +32,7 @@ $ serve -s build
 
 Puis allez à l'adresse : `http://127.0.0.1:5000/`
 
-## Compétences 
+## Compétences acquises
 - Refondre une application pour réduire la dette technique
 - Analyser la performance d'une application web
 - Déployer une application front-end
